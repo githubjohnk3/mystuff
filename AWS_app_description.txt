@@ -1,0 +1,3 @@
+Let's model this application:
+
+A mobile UI connects to an AWS API Gateway through an AWS WAF The API Gateway Connects to 3 AWS Lambda services each AWS Lambda service connects to a separate AWS Dynamo DB An AWS Apache Flink Service connects to all of the Dynamo DB
