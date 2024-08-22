@@ -1,0 +1,9 @@
+# Azure application example
+
+MobileUI connecting through the WAF to the API Management service
+
+API Management service connects to three Azure funtions: FunctionA, FunctionB, FunctionC
+
+FunctionA is connecting to a Azure SQL Server, and to Blob Storage
+FunctionB is connecting to Azure Cosmos
+FunctionC is connecting to Azure Databricks
