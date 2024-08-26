@@ -1,0 +1,369 @@
+trustzones:
+  - type: b61d6911-338d-46a8-9f39-8dcd24abfe91
+    name: Public Cloud
+    risk:
+      trust_rating: 10
+    $default: true
+
+  - type: f0ba7722-39b6-4c81-8290-a30a248bb8d9
+    name: Internet
+    risk:
+      trust_rating: 1
+
+components:
+
+    ################################################################################################
+    #   Azure STENCILS
+    ################################################################################################
+      - label: azurerm_communication_service
+        type: CD-AZURE-COMM-SERVICES
+        
+      - label: azurerm_storage_account_customer_managed_key
+        type: CD-AZURE-CUSTOMER-LOCKBOX
+        
+      - label: azurerm_traffic_manager_external_endpoint
+        type: CD-AZURE-EXT-ID
+        
+      - label: azurerm_spring_cloud_app
+        type: CD-AZURE-SPRING-APPS
+        
+      - label: azurerm_active_directory_domain_service
+        type: CD-MICROSOFT-AZURE-AD-DS
+        
+      - label: azurerm_advisor_recommendations
+        type: CD-MICROSOFT-AZURE-ADVISOR
+        
+      - label: azurerm_managed_api
+        type: CD-MICROSOFT-AZURE-API-APPS
+        
+      - label: azurerm_app_configuration
+        type: CD-MICROSOFT-AZURE-APP-CONFIG
+        
+      - label: azurerm_app_service
+        type: CD-MICROSOFT-AZURE-APP-SERVICE
+        
+      - label: azurerm_app_service_plan
+        type: CD-MICROSOFT-AZURE-APP-SERVICE-PLAN
+        
+      - label: azurerm_template_spec_version
+        type: CD-MICROSOFT-AZURE-ARM-TEMPLATE
+        
+      - label: azurerm_attestation_provider
+        type: CD-MICROSOFT-AZURE-ATTESTATION
+        
+      - label: azurerm_availability_set
+        type: CD-MICROSOFT-AZURE-AVAILABILITY-SETS
+        
+      - label: azurerm_data_protection_backup_vault
+        type: CD-MICROSOFT-AZURE-BACKUP-SERVICE
+        
+      - label: azurerm_batch_account
+        type: CD-MICROSOFT-AZURE-BATCH
+        
+      - label: azurerm_voice_services_communications_gateway
+        type: CD-MICROSOFT-AZURE-BIZTALK-SERVICES
+        
+      - label: azurerm_storage_blob
+        type: CD-MICROSOFT-AZURE-BLOB-STORAGE
+        
+      - label: azurerm_blueprint_assignment
+        type: CD-MICROSOFT-AZURE-BLUEPRINTS
+        
+      - label: azurerm_bot_service_azure_bot
+        type: CD-MICROSOFT-AZURE-BOT-FW-SDK
+        
+      - label: azurerm_redis_cache
+        type: CD-MICROSOFT-AZURE-CACHE-REDIS
+        
+      - label: azurerm_logic_app_standard
+        type: CD-MICROSOFT-AZURE-CITRIX-DAAS
+        
+      - label: azurerm_spring_cloud_service
+        type: CD-MICROSOFT-AZURE-CLOUD-SERVICES
+        
+      - label: azurerm_cognitive_account
+        type: CD-MICROSOFT-AZURE-COG-SER
+        
+      - label: azurerm_confidential_ledger
+        type: CD-MICROSOFT-AZURE-CONF-LEDGER
+        
+      - label: azurerm_container_connected_registry
+        type: CD-MICROSOFT-AZURE-CONTAINER-INSTANCES
+        
+      - label: azurerm_media_content_key_policy
+        type: CD-MICROSOFT-AZURE-CONTENT-MODERATOR-API
+        
+      - label: azurerm_cost_anomaly_alert
+        type: CD-MICROSOFT-AZURE-COST-MANAGEMENT
+        
+      - label: azurerm_data_share_account
+        type: CD-MICROSOFT-AZURE-DATA-CATALOG
+        
+      - label: azurerm_data_factory
+        type: CD-MICROSOFT-AZURE-DATA-FACTORY
+        
+      - label: azurerm_data_share_dataset_data_lake_gen2
+        type: CD-MICROSOFT-AZURE-DATA-LAKE-STORAGE
+        
+      - label: azurerm_data_share
+        type: CD-MICROSOFT-AZURE-DATA-SHARE
+        
+      - label: azurerm_database_migration_service
+        type: CD-MICROSOFT-AZURE-DATABASE-MIGRATION-SERVICE
+        
+      - label: azurerm_datadog_monitors
+        type: CD-MICROSOFT-AZURE-DATADOG
+        
+      - label: azurerm_postgresql_database
+        type: CD-MICROSOFT-AZURE-DB-POSTGRESQL
+        
+      - label: azurerm_dedicated_hardware_security_module
+        type: CD-MICROSOFT-AZURE-DEDICATED-HSM
+        
+      - label: azurerm_dev_test_lab
+        type: CD-MICROSOFT-AZURE-DEVOPS-SERVICE
+        
+      - label: azurerm_dev_test_virtual_network
+        type: CD-MICROSOFT-AZURE-DEVTEST-LABS-FORMULAS
+        
+      - label: azurerm_disk_access
+        type: CD-MICROSOFT-AZURE-DISK-STORAGE
+        
+      - label: azurerm_sentinel_data_connector_dynamics_365
+        type: CD-MICROSOFT-AZURE-DYNAMICS-365
+        
+      - label: azurerm_eventgrid_domain
+        type: CD-MICROSOFT-AZURE-EVENT-GRID-SUBSCRIPTIONS
+        
+      - label: azurerm_eventhub_namespace
+        type: CD-MICROSOFT-AZURE-EVENT-HUB-NAMESPACE
+        
+      - label: azurerm_storage_account
+        type: CD-MICROSOFT-AZURE-STORAGE-ACCOUNT
+        
+      - label: azurerm_storage_data_lake_gen2_filesystem
+        type: CD-MICROSOFT-AZURE-FILES
+        
+      - label: azurerm_app_service_hybrid_connection
+        type: CD-MICROSOFT-AZURE-HYBRID-CONNECTIONS
+        
+      - label: azurerm_iotcentral_application
+        type: CD-MICROSOFT-AZURE-IOT-EDGE
+        
+      - label: azurerm_iothub_enrichment
+        type: CD-MICROSOFT-AZURE-IOT-SOLUTION-ACCELERATORS
+        
+      - label: azurerm_media_live_event
+        type: CD-MICROSOFT-AZURE-LIVE-AND-ON-DEMAND-STREAMING
+        
+      - label: azurerm_machine_learning_compute_instance
+        type: CD-MICROSOFT-AZURE-MACH-LEARN
+        
+      - label: azurerm_managed_application
+        type: CD-MICROSOFT-AZURE-MANAGED-APPS
+        
+      - label: azurerm_api_management_group
+        type: CD-MICROSOFT-AZURE-RESOURCE-GROUPS
+        
+      - label: azurerm_marketplace_agreement
+        type: CD-MICROSOFT-AZURE-MARKETPLACE
+        
+      - label: azurerm_media_job
+        type: CD-MICROSOFT-AZURE-MEDIA-PLAYER
+        
+      - label: azurerm_database_migration_project
+        type: CD-MICROSOFT-AZURE-MIGRATE
+        
+      - label: azurerm_mobile_network_service
+        type: CD-MICROSOFT-AZURE-MOBILE-ENGAGEMENT
+        
+      - label: azurerm_netapp_account
+        type: CD-MICROSOFT-AZURE-NETAPP-FILES
+        
+      - label: azurerm_network_security_group
+        type: CD-MICROSOFT-AZURE-NETWORK-SECURITY-GROUP
+        
+      - label: azurerm_network_watcher
+        type: CD-MICROSOFT-AZURE-NW-WATCHER
+        
+      - label: azurerm_vpn_gateway_connection
+        type: CD-MICROSOFT-AZURE-ON-PREMISES-DATA-GATEWAY
+        
+      - label: azurerm_data_factory_pipeline
+        type: CD-MICROSOFT-AZURE-PIPELINES
+        
+      - label: azurerm_policy_set_definition
+        type: CD-MICROSOFT-AZURE-POLICY
+        
+      - label: azurerm_powerbi_embedded
+        type: CD-MICROSOFT-AZURE-POWER-BI-EMBEDDED
+        
+      - label: azurerm_private_link_service
+        type: CD-MICROSOFT-AZURE-PRIVATE-LINK
+        
+      - label: azurerm_purview_account
+        type: CD-MICROSOFT-AZURE-PURVIEW
+        
+      - label: azurerm_storage_queue
+        type: CD-MICROSOFT-AZURE-QUEUE-STORAGE
+        
+      - label: azurerm_site_recovery_services_vault_hyperv_site
+        type: CD-MICROSOFT-AZURE-RECOVERY-SERVICE-VAULT
+        
+      - label: azurerm_relay_namespace
+        type: CD-MICROSOFT-AZURE-RELAY
+        
+      - label: azurerm_resource_group
+        type: CD-MICROSOFT-AZURE-RESOURCE-GROUP
+        
+      - label: azurerm_route_table
+        type: CD-MICROSOFT-AZURE-ROUTE-TABLE
+        
+      - label: azurerm_automation_schedule
+        type: CD-MICROSOFT-AZURE-SCHEDULER
+        
+      - label: azurerm_spring_cloud_java_deployment
+        type: CD-MICROSOFT-AZURE-SDK-JAVA
+        
+      - label: azurerm_search_service
+        type: CD-MICROSOFT-AZURE-SEARCH
+        
+      - label: azurerm_servicebus_queue
+        type: CD-MICROSOFT-AZURE-SER-BUS-MSG
+        
+      - label: azurerm_servicebus_topic
+        type: CD-MICROSOFT-AZURE-SERVICE-BUS-TOPICS
+        
+      - label: azurerm_healthcare_service
+        type: CD-MICROSOFT-AZURE-SERVICE-HEALTH
+        
+      - label: azurerm_site_recovery_hyperv_network_mapping
+        type: CD-MICROSOFT-AZURE-SITE-RECOVERY
+        
+      - label: azurerm_sql_database
+        type: CD-MICROSOFT-AZURE-SQL-DB
+        
+      - label: azurerm_sql_server
+        type: CD-MICROSOFT-AZURE-SQL-MI
+        
+      - label: azurerm_stack_hci_cluster
+        type: CD-MICROSOFT-AZURE-STACK
+        
+      - label: azurerm_subnet
+        type: CD-MICROSOFT-AZURE-SUBNET
+        
+      - label: azurerm_storage_table_entity
+        type: CD-MICROSOFT-AZURE-TABLE-STORAGE
+        
+      - label: azurerm_video_analyzer
+        type: CD-MICROSOFT-AZURE-VIDEO-INDEXER
+        
+      - label: azurerm_virtual_machine_scale_set
+        type: CD-MICROSOFT-AZURE-VIRTUAL-MACHINE-SCALE-SETS
+        
+      - label: azurerm_vpn_gateway
+        type: CD-MICROSOFT-AZURE-VPN-GW
+        
+      - label: azurerm_container_app
+        type: CD-MICROSOFT-AZURE-WEB-APP-FOR-CONTAINERS
+        
+      - label: azurerm_windows_virtual_machine
+        type: CD-MICROSOFT-AZURE-WINDOWS-VM
+        
+      - label: azurerm_virtual_wan
+        type: CD-MICROSOFT-VIRTUAL-WAN
+        
+      - label: azurerm_storage_account_sas
+        type: azure-storage
+        
+      - label: azurerm_api_management_identity_provider_microsoft
+        type: microsoft-azure-active-directory
+        
+      - label: azurerm_application_gateway
+        type: microsoft-azure-application-gateway
+        
+      - label: azurerm_app_service_environment
+        type: microsoft-azure-environment
+        
+      - label: azurerm_express_route_gateway
+        type: microsoft-azure-expressroute
+        
+      - label: azurerm_firewall
+        type: microsoft-azure-firewall-manager
+        
+      - label: azurerm_frontdoor
+        type: microsoft-azure-front-door
+        
+      - label: azurerm_key_vault
+        type: microsoft-azure-key-vault
+        
+      - label: azurerm_application_load_balancer
+        type: microsoft-azure-load-balancer
+        
+      - label: azurerm_logic_app_integration_account
+        type: microsoft-azure-logic-apps
+        
+      - label: azurerm_portal_dashboard
+        type: microsoft-azure-portal
+        
+      - label: azurerm_sentinel_data_connector_microsoft_defender_advanced_threat_protection
+        type: microsoft-azure-security-center
+        
+      - label: azurerm_traffic_manager_azure_endpoint
+        type: microsoft-azure-traffic-manager
+        
+      - label: azurerm_windows_web_app
+        type: microsoft-azure-web-apps
+        #Not mapped:
+      - label: Azure CycleCloud
+        type: CD-MICROSOFT-AZURE-CYCLECLOUD
+        
+      - label: Azure Encoding
+        type: CD-MICROSOFT-AZURE-ENCODING
+        
+      - label: Azure Import/Export
+        type: CD-MICROSOFT-AZURE-IMPORT-EXPORT
+        
+      - label: Azure Intune Service
+        type: CD-MICROSOFT-AZURE-INTUNE-SERVICE
+        
+      - label: Azure Language Understanding
+        type: CD-MICROSOFT-AZURE-LANGUAGE-UNDERSTANDING
+        
+      - label: Azure SDK for .NET
+        type: CD-MICROSOFT-AZURE-SDK-NET
+        
+      - label: Azure Speaker Recognition API
+        type: CD-MICROSOFT-AZURE-SPEAKER-RECOGNITION-API
+        
+      - label: Azure Speech Translation API
+        type: CD-MICROSOFT-AZURE-SPEECH-TRANSLATION-API
+        
+      - label: Azure Store and Marketplace
+        type: CD-MICROSOFT-AZURE-STORE-MARKETPLACE
+        
+      - label: Azure StorSimple Virtual Array
+        type: CD-MICROSOFT-AZURE-STORSIMPLE-VIRTUAL-ARRAY
+        
+      - label: Azure Test Plans
+        type: CD-MICROSOFT-AZURE-TEST-PLANS
+        
+      - label: Azure Text to Speech API
+        type: CD-MICROSOFT-AZURE-TEXT-TO-SPEECH-API
+        
+      - label: Azure Translator Text API
+        type: CD-MICROSOFT-AZURE-TRANSLATOR-TEXT-API
+        
+      - label: Azure visual studio app center
+        type: CD-MICROSOFT-AZURE-VISUAL-STUDIO-APP-CENTER
+        
+      - label: Azure VMDepot
+        type: CD-MICROSOFT-AZURE-VMDEPOT
+
+      - label: azurerm_cdn_frontdoor_custom_domain
+        type: microsoft-azure-front-door
+        
+configuration:
+  attack_surface:
+    client: generic-client
+    trustzone: f0ba7722-39b6-4c81-8290-a30a248bb8d9
