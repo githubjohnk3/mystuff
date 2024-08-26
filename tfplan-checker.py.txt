@@ -1,0 +1,150 @@
+import json
+import jsonschema
+
+schema = '''
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "planned_values": {
+      "type": "object",
+      "properties": {
+        "root_module": {
+          "type": "object",
+          "properties": {
+            "resources": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/resource_data"}
+            },
+            "child_modules": {"$ref": "#/definitions/child_modules"}
+          },
+          "anyOf": [
+            {"required": ["resources"]},
+            {"required": ["child_modules"]}
+          ]
+        }
+      },
+      "required": ["root_module"]
+    },
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "root_module": {
+          "type": "object",
+          "properties": {
+            "resources": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/resource_data"}
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "planned_values",
+    "configuration"
+  ],
+  "definitions": {
+    "resource_data": {
+      "type": "object",
+      "required": ["address", "type", "name"],
+      "properties": {
+        "address": {"type": "string"},
+        "type": {"type": "string"},
+        "name": {"type": "string"}
+      }
+    },
+    "child_modules": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "resources": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/resource_data"}
+            },
+            "address": {"type": "string"},
+            "child_modules": {"$ref": "#/definitions/child_modules"}
+          },
+          "anyOf": [
+            {"required": ["resources","address"]},
+            {"required": ["child_modules","address"]}
+          ]
+        }
+      ]
+    }
+  }
+}
+'''
+
+
+def ask_for_file_path(lightened_file: bool = False) -> str:
+    for _ in range(3):
+        path = input(
+            f'Introduce the {"lightened file " if lightened_file else ""}path of the file (absolute or relative to this folder):')
+        if path:
+            return path
+    print('Introduce a valid absolute or relative file to the JSON file.')
+    exit(1)
+
+
+def ask_for_lighten_up_file() -> bool:
+    for _ in range(3):
+        r = input('Do you want to lighten up the file (no relevant info will be missed)?')
+        if r.upper() == 'Y':
+            return True
+        elif r.upper() == 'N':
+            return False
+
+    print("Please retry again, answering Y or N")
+    exit(1)
+
+
+def validate_json(json_content: str, schema):
+    try:
+        jsonschema.validate(json_content, schema)
+    except jsonschema.exceptions.ValidationError as e:
+        print(f"JSON is not valid: {e.message}")
+
+
+def remove_json_sections(json_content, sections):
+    for section in sections:
+        keys = section.split('.')
+        obj = json_content
+        for key in keys[:-1]:
+            if key in obj:
+                obj = obj[key]
+            else:
+                break
+        else:
+            if keys[-1] in obj:
+                del obj[keys[-1]]
+    return json_content
+
+
+with open(ask_for_file_path(), 'r') as json_file:
+    try:
+        json_data = json.load(json_file)
+        print('JSON file format is right.')
+
+        schema = json.loads(schema)
+        validate_json(json_data, schema)
+        print('JSON file complies with the JSON schema.')
+
+        if ask_for_lighten_up_file():
+            sections_to_remove = \
+                ['variables', 'resource_changes', 'output_changes', 'prior_state', 'relevant_attributes',
+                 'planned_values.outputs', 'configuration.provider_config', 'configuration.outputs',
+                 'configuration.module_calls', 'configuration.variables']
+
+            lighten_up_json_data = remove_json_sections(json_data, sections_to_remove)
+
+            with open(ask_for_file_path(True), 'w') as file:
+                file.write(json.dumps(lighten_up_json_data, indent=4))
+
+    except json.JSONDecodeError as e:
+        print("Invalid JSON data:", str(e))
+    except jsonschema.exceptions.SchemaError as e:
+        print("Invalid JSON schema:", str(e))
